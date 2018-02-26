@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[10]:
+# In[19]:
 
 
 import os
@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 DATA_CONTAINER = "data/"
 
 
-# In[11]:
+# In[20]:
 
 
 def load_csv_data(file_name, data_container=DATA_CONTAINER):
@@ -44,31 +44,31 @@ def max_latency(core1_max, core2_max, core3_max, core4_max):
     return max_latency
 
 
-# In[12]:
+# In[21]:
 
 
 latency_std = load_csv_data(file_name='histogram_stdkernel.csv')
 latency_rt = load_csv_data(file_name='histogram_rtkernel.csv')
+latency_rt_docker = load_csv_data(file_name='histogram_rtkernel_docker.csv')
 
 
-# In[13]:
+# In[22]:
 
 
 latency_std = latency_std.set_index('time')
-latency_std.head()
-
 latency_rt = latency_rt.set_index('time')
-latency_rt.head()
+latency_rt_docker = latency_rt_docker.set_index('time')
 
 
-# In[14]:
+# In[23]:
 
 
 max_latency_std = max_latency(latency_std.core1.values,latency_std.core2.values,latency_std.core3.values,latency_std.core4.values)
 max_latency_rt = max_latency(latency_rt.core1.values,latency_rt.core2.values,latency_rt.core3.values,latency_rt.core4.values)
+max_latency_rt_docker = max_latency(latency_rt_docker.core1.values,latency_rt_docker.core2.values,latency_rt_docker.core3.values,latency_rt_docker.core4.values)
 
 
-# In[15]:
+# In[24]:
 
 
 mnplt = 0
@@ -84,7 +84,7 @@ plt.legend()
 plt.grid(True)
 
 
-# In[16]:
+# In[25]:
 
 
 mnplt = 0
@@ -93,21 +93,43 @@ plt.semilogy(latency_rt.index[mnplt:mxplt], latency_rt.core1[mnplt:mxplt], 'r', 
 plt.semilogy(latency_rt.index[mnplt:mxplt], latency_rt.core2[mnplt:mxplt], 'b', label='core2')
 plt.semilogy(latency_rt.index[mnplt:mxplt], latency_rt.core3[mnplt:mxplt], 'g', label='core3')
 plt.semilogy(latency_rt.index[mnplt:mxplt], latency_rt.core4[mnplt:mxplt], 'k', label='core4')
-plt.title('Latency using Standard Raspbian Kernel (4.14.21-rt17-v7+)')
+plt.title('Latency using RT-Preempt Raspbian Kernel (4.14.21-rt17-v7+)')
 plt.ylabel('Number of latency samples')
 plt.xlabel('Latency (us), max %i us' % max_latency_rt)
 plt.legend()
 plt.grid(True)
 
 
-# In[17]:
+# In[26]:
+
+
+mnplt = 0
+mxplt = 400
+plt.semilogy(latency_rt_docker.index[mnplt:mxplt], latency_rt_docker.core1[mnplt:mxplt], 'r', label='core1')
+plt.semilogy(latency_rt_docker.index[mnplt:mxplt], latency_rt_docker.core2[mnplt:mxplt], 'b', label='core2')
+plt.semilogy(latency_rt_docker.index[mnplt:mxplt], latency_rt_docker.core3[mnplt:mxplt], 'g', label='core3')
+plt.semilogy(latency_rt_docker.index[mnplt:mxplt], latency_rt_docker.core4[mnplt:mxplt], 'k', label='core4')
+plt.title('Latency using Docker on RT-Preempt Raspbian Kernel (4.14.21-rt17-v7+)')
+plt.ylabel('Number of latency samples')
+plt.xlabel('Latency (us), max %i us' % max_latency_rt_docker)
+plt.legend()
+plt.grid(True)
+
+
+# In[27]:
 
 
 latency_std.sort_values('core1', ascending=False, inplace=False, kind='quicksort').head()
 
 
-# In[18]:
+# In[29]:
 
 
 latency_rt.sort_values('core1', ascending=False, inplace=False, kind='quicksort').head()
+
+
+# In[30]:
+
+
+latency_rt_docker.sort_values('core1', ascending=False, inplace=False, kind='quicksort').head()
 
