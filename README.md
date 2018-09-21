@@ -18,6 +18,7 @@ You can find additional information reading these posts:
   * kernel_4_14_52-rt34-v7+
 * the folder `xenomai/v3.0.7` includes the patched kernel:
   * kernel_4_14_37-v7+
+  
 If you don't want to, you don't need to compile the kernel again: You can donwload these patches and deploy them. More info:
 * [#Raspberry Pi: Real Time System - Preempt-RT Patching Tutorial for Kernel 4.14.y](https://lemariva.com/blog/2018/07/raspberry-pi-preempt-rt-patching-tutorial-for-kernel-4-14-y)
 * [#Raspberry Pi: Real Time System - Xenomai Patching Tutorial for Kernel 4.14.y](https://lemariva.com/blog/2018/07/raspberry-pi-xenomai-patching-tutorial-for-kernel-4-14-y)
