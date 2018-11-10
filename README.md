@@ -16,6 +16,7 @@ You can find additional information reading these posts:
   * kernel_4_14_21-rt17-v7+	
   * kernel_4_14_27-rt21-v7+
   * kernel_4_14_52-rt34-v7+
+  * kernel_4_14_74-rt44-v7+
 * the folder `xenomai/v3.0.7` includes the patched kernel:
   * kernel_4_14_37-v7+
   
