@@ -7,6 +7,7 @@ You can find additional information reading these posts:
 * [#Raspberry Pi: Real Time System - Preempt-RT Patching Tutorial for Kernel 4.14.y](https://lemariva.com/blog/2018/07/raspberry-pi-preempt-rt-patching-tutorial-for-kernel-4-14-y)
 * [#Raspberry Pi: The N-queens Problem! (benchmark) Preempt-RT vs. Standard Kernel!](https://lemariva.com/blog/2018/04/raspberry-pi-the-n-queens-problem-performance-test)
 * [#Rapberry Pi: Preempt-RT Kernel Performance on Rasbperry PI 3 Model B+](https://lemariva.com/blog/2018/04/rapberry-pi-preempt-rt-kernel-performance-on-rasbperry-pi-3-model-b)
+* #Raspberry Pi 4B: Preempt-RT Kernel 4.19.y - Performance Test (coming soon)
 
 ## Xenomai v3.0.7
 * [#Raspberry Pi: Real Time System - Xenomai Patching Tutorial for Kernel 4.14.y](https://lemariva.com/blog/2018/07/raspberry-pi-xenomai-patching-tutorial-for-kernel-4-14-y)
@@ -17,6 +18,7 @@ You can find additional information reading these posts:
   * kernel_4_14_27-rt21-v7+
   * kernel_4_14_52-rt34-v7+
   * kernel_4_14_74-rt44-v7+
+  * kernel_4_19_59-rt23-v7l+
 * the folder `xenomai/v3.0.7` includes the patched kernel:
   * kernel_4_14_37-v7+
   
